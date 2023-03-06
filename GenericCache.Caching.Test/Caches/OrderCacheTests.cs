@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Redis.OM.Contracts;
 using Redis.OM.Searching;
 
-namespace GenericCachePoc.Caching.Test.Caches;
+namespace GenericCache.Caching.Test.Caches;
 
 public class OrderCacheTests
 {

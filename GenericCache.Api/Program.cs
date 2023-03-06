@@ -1,6 +1,6 @@
-using GenericCachePoC.Caching;
+using GenericCache.Caching;
 
-namespace GenericCachePoC.Api;
+namespace GenericCache.Api;
 
 public class Program
 {

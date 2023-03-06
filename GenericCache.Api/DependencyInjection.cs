@@ -1,4 +1,4 @@
-﻿namespace GenericCachePoC.Api;
+﻿namespace GenericCache.Api;
 
 /// <summary>
 /// Extension methods for setting up the services from the Api presentation layer in an <see cref="IServiceCollection" />.

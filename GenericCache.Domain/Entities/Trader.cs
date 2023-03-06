@@ -1,6 +1,6 @@
 ﻿using Redis.OM.Modeling;
 
-namespace GenericCachePoC.Domain.Entities
+namespace GenericCache.Domain.Entities
 {
     [Document(StorageType = StorageType.Json, Prefixes = new[] { "Trader" })]
     public sealed class Trader : BaseEntity<int>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace GenericCachePoc.Caching.Test.Caches;
+namespace GenericCache.Caching.Test.Caches;
 
 public class TraderCacheTests
 {

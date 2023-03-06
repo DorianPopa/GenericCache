@@ -1,9 +1,9 @@
-﻿using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Domain.Entities;
 using Microsoft.Extensions.Hosting;
 using Redis.OM;
 using Redis.OM.Contracts;
 
-namespace GenericCachePoC.Caching;
+namespace GenericCache.Caching;
 
 public class RedisIndexCreationService : IHostedService
 {

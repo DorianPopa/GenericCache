@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GenericCachePoC.Domain\GenericCachePoC.Domain.csproj" />
+    <ProjectReference Include="..\GenericCache.Domain\GenericCache.Domain.csproj" />
   </ItemGroup>
 
 </Project>

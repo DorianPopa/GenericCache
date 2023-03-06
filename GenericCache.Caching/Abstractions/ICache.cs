@@ -1,6 +1,6 @@
-﻿using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Domain.Entities;
 
-namespace GenericCachePoC.Caching.Abstractions;
+namespace GenericCache.Caching.Abstractions;
 
 // TODO: Find a way to remove the need of specifying the TKey as this leaks responsability because classes referencing this must also specify it
 

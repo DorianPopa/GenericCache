@@ -1,8 +1,8 @@
-﻿using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 
-namespace GenericCachePoC.Caching.Abstractions;
+namespace GenericCache.Caching.Abstractions;
 
 /// <summary>
 /// Generic Dictionary backed, in-memory cache implementation that supports the operations of ICache
@@ -25,7 +25,7 @@ public abstract class InMemoryCache<TKey, TValue> : ICache<TKey, TValue>
     /// <inheritdoc/>
     public async Task<bool> AddAsync(TValue entity)
     {
-        var result = await Task.Run(() => 
+        var result = await Task.Run(() =>
             _cache.TryAdd(entity.Id, entity)
         );
         return result;
@@ -34,7 +34,7 @@ public abstract class InMemoryCache<TKey, TValue> : ICache<TKey, TValue>
     /// <inheritdoc/>
     public async Task<bool> RemoveAsync(TValue entity)
     {
-        var result = await Task.Run(() => 
+        var result = await Task.Run(() =>
             _cache.TryRemove(entity.Id, out _)
         );
         return result;
@@ -43,9 +43,10 @@ public abstract class InMemoryCache<TKey, TValue> : ICache<TKey, TValue>
     /// <inheritdoc/>
     public async Task<TValue> TryGetByKeyAsync(TKey key)
     {
-        var result = await Task.Run(() => {
+        var result = await Task.Run(() =>
+        {
             _cache.TryGetValue(key, out TValue cacheEntity);
-            return cacheEntity; 
+            return cacheEntity;
         });
         return result;
     }
@@ -53,7 +54,7 @@ public abstract class InMemoryCache<TKey, TValue> : ICache<TKey, TValue>
     /// <inheritdoc/>
     public async Task<IEnumerable<TValue>> GetAllAsync()
     {
-        var result = await Task.Run(() => 
+        var result = await Task.Run(() =>
             _cache.Values.ToList()
         );
         return result;

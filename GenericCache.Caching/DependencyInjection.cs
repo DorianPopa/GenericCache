@@ -1,14 +1,14 @@
-﻿using GenericCachePoC.Caching.Abstractions;
-using GenericCachePoC.Caching.Caches;
-using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Caching.Abstractions;
+using GenericCache.Caching.Caches;
+using GenericCache.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Redis.OM;
 using Redis.OM.Contracts;
 using StackExchange.Redis;
-using Order = GenericCachePoC.Domain.Entities.Order;
+using Order = GenericCache.Domain.Entities.Order;
 
-namespace GenericCachePoC.Caching;
+namespace GenericCache.Caching;
 
 /// <summary>
 /// Extension methods for setting up the services from the caching layer in an <see cref="IServiceCollection" />.
@@ -39,7 +39,7 @@ public static class DependencyInjection
         var connection = new RedisConnectionProvider(option);
 
         services.AddSingleton<IRedisConnectionProvider>(connection);
-        
+
 
         return services;
     }

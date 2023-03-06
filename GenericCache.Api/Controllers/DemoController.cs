@@ -1,8 +1,8 @@
-using GenericCachePoC.Caching.Abstractions;
-using GenericCachePoC.Domain.Entities;
+using GenericCache.Caching.Abstractions;
+using GenericCache.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GenericCachePoC.Api.Controllers;
+namespace GenericCache.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

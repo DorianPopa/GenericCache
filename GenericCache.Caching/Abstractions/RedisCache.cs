@@ -1,9 +1,9 @@
-﻿using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using Redis.OM.Contracts;
 using Redis.OM.Searching;
 
-namespace GenericCachePoC.Caching.Abstractions;
+namespace GenericCache.Caching.Abstractions;
 
 /// <summary>
 /// Generic Redis Cache implementation that supports the operations of ICache
@@ -50,7 +50,7 @@ public abstract class RedisCache<TKey, TValue> : ICache<TKey, TValue>
             var result = await _cache.ToListAsync();
             return result;
         }
-        catch (Exception ex) 
+        catch (Exception ex)
         {
             _logger.LogError(ex.Message);
             return new List<TValue>();

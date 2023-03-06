@@ -1,9 +1,9 @@
-﻿using GenericCachePoC.Caching.Abstractions;
-using GenericCachePoC.Domain.Entities;
+﻿using GenericCache.Caching.Abstractions;
+using GenericCache.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using Redis.OM.Contracts;
 
-namespace GenericCachePoC.Caching.Caches;
+namespace GenericCache.Caching.Caches;
 
 public sealed class OrderCache : RedisCache<Guid, Order>
 {

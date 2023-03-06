@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GenericCachePoC.Caching\GenericCachePoC.Caching.csproj" />
+    <ProjectReference Include="..\GenericCache.Caching\GenericCache.Caching.csproj" />
   </ItemGroup>
 
 </Project>

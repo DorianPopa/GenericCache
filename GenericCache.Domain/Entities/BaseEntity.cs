@@ -1,6 +1,6 @@
 ﻿using Redis.OM.Modeling;
 
-namespace GenericCachePoC.Domain.Entities;
+namespace GenericCache.Domain.Entities;
 
 public abstract class BaseEntity<T> where T : notnull
 {

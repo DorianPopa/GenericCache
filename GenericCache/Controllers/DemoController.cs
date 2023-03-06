@@ -2,7 +2,7 @@ using GenericCachePoC.Caching.Abstractions;
 using GenericCachePoC.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GenericCachePoC.Controllers;
+namespace GenericCachePoC.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -15,7 +15,6 @@ public class DemoController : ControllerBase
 
     public DemoController(ILogger<DemoController> logger, ICache<Guid, Order> orderCache, ICache<int, Trader> traderCache)
     {
-        
         _logger = logger;
         _orderCache = orderCache;
         _traderCache = traderCache;

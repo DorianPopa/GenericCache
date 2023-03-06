@@ -1,13 +1,6 @@
 using GenericCachePoC.Caching;
-using GenericCachePoC.Caching.Abstractions;
-using GenericCachePoC.Caching.Caches;
-using GenericCachePoC.Domain.Entities;
-using Redis.OM;
-using Redis.OM.Contracts;
-using StackExchange.Redis;
-using Order = GenericCachePoC.Domain.Entities.Order;
 
-namespace GenericCachePoC;
+namespace GenericCachePoC.Api;
 
 public class Program
 {
@@ -15,10 +8,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-        builder.Services.AddControllers();
+        var configuration = builder.Configuration;
 
-        builder.Services.SetupDIContainer();
+        builder.Services.SetupDependencyInjectionContainer(configuration);
 
         var app = builder.Build();
 
@@ -33,35 +25,12 @@ public class Program
     }
 }
 
-public static class ServiceExtensions
+internal static class ServiceExtensions
 {
-    public static IServiceCollection SetupDIContainer(this IServiceCollection services)
+    public static IServiceCollection SetupDependencyInjectionContainer(this IServiceCollection services, IConfiguration configuration)
     {
-        services.SetupRedis();
-        services.SetupCaches();
-
-        return services;
-    }
-
-    private static IServiceCollection SetupRedis(this IServiceCollection services)
-    {
-        // Configuration for the Redis connection
-        ConfigurationOptions option = new ConfigurationOptions
-        {
-            EndPoints = { "127.0.0.1:6379" }
-        };
-        var connection = new RedisConnectionProvider(option);
-
-        services.AddSingleton<IRedisConnectionProvider>(connection);
-        services.AddHostedService<RedisIndexCreationService>();
-
-        return services;
-    }
-
-    private static IServiceCollection SetupCaches(this IServiceCollection services)
-    {
-        services.AddSingleton<ICache<Guid, Order>, OrderCache>();
-        services.AddSingleton<ICache<int, Trader>, TraderCache>();
+        services.AddCacheLayer(configuration)
+                .AddApiPresentationLayer();
 
         return services;
     }
